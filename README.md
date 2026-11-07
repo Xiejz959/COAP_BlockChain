@@ -16,7 +16,7 @@
 
 ## 功能范围
 
-计划实现的功能仅包括：
+项目功能范围仅包括以下内容，具体实现状态见下文：
 
 - 确定性创世配置、SHA-256 哈希链接与最小区块结构。
 - PoW Nonce 搜索、区块生成及独立验证。
@@ -43,27 +43,33 @@ GitHub 用于保存课程文档和后续源代码，不作为实验节点、计�
 
 ## 当前状态
 
-**当前仅完成项目方案、用途说明、开发目录规划和 MacBook Conda 开发环境，尚未实现新的节点程序。**
+**当前已实现 MacBook 单节点和本机 TCP 双节点：固定创世块、单进程 PoW、区块验证、累计区块数、持久化、广播、分页同步、重连补块和累计工作量选链。28 项自动测试通过。**
 
-PoW 后端、多节点同步、分支处理、ARM 加速、监控页面、性能数据和离线部署均为计划内容，尚未通过实际验证。本仓库不提供生产环境系统或服务。
+已验证单节点“3→5”、真实双进程同步和离线节点追平、75 块分页同步，以及等工作量分支在延长后收敛。测试连接仅使用本机回环地址。PC、Pi 和真实局域网部署仍待验证；原生后端、多核、ARM 加速、监控页面、性能实验和仿真尚未实现。本仓库不提供生产环境系统或服务。
 
 详细设计、课程对应、实验方法、四人分工、目录安排与开发里程碑见 [项目方案](introduction/project_plan.md)。
+
+当前格式和消息规则见 [协议说明](introduction/protocol.md)，操作步骤见 [单节点验收](introduction/single_node_acceptance.md)及[双节点验收](introduction/two_node_acceptance.md)。
 
 ## 仓库内容
 
 ```text
 README.md                       项目用途、范围与当前状态
 introduction/project_plan.md    课程设计方案与实施计划
+introduction/protocol.md        已实现的区块与 TCP 消息协议
+introduction/single_node_acceptance.md  单节点验收步骤
+introduction/two_node_acceptance.md     双节点及重连验收
 codes/README.md                 开发工具、源码目录和模块职责
 codes/environment.yml           Python 3.11 Conda 环境配置
-codes/src/blocknode/            后续 Python 节点源码
+codes/pyproject.toml             本地包安装配置
+codes/src/blocknode/            Python 节点源码
 codes/native/                   后续原生计算后端
 codes/experiments/              后续基准与仿真程序
-codes/tests/                    后续正确性与集成测试
-codes/config/                   后续创世和节点配置
+codes/tests/                    协议、存储和 CLI 测试
+codes/config/                   固定创世配置
 codes/scripts/                  后续启动与实验脚本
 ```
 
-开发工具和目录职责见 [开发说明](codes/README.md)。使用独立的 `blocknode` Conda 环境，首版计划使用 Python 标准库，后续原生计算使用 C/C++。前端采用本地 HTML/CSS/原生 JavaScript，不使用 Node.js、npm、前端框架、Docker、第三方区块链平台或 SDK。
+开发工具和运行命令见 [开发说明](codes/README.md)。使用独立的 `blocknode` Conda 环境，当前节点仅依赖 Python 标准库，后续原生计算使用 C/C++。前端计划采用本地 HTML/CSS/原生 JavaScript，不使用 Node.js、npm、前端框架、Docker、第三方区块链平台或 SDK。
 
-`codes/` 已整理为新项目目录，使用 `.gitkeep` 保留待实现目录，尚未添加功能代码。其余顶层资料目录继续保留在本地，其职责记录在项目方案中。
+已实现目录包含实际代码，待实现目录继续用 `.gitkeep` 保留。运行数据库、缓存和本地包安装元数据不提交 Git。

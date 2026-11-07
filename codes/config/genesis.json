@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "network_id": "coap-edu-pow-001",
+  "target": "0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "genesis_nonce": 24452
+}
