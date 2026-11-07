@@ -43,7 +43,7 @@ GitHub 用于保存课程文档和后续源代码，不作为实验节点、计�
 
 ## 当前状态
 
-**当前仅完成项目方案与用途说明，尚未实现新的节点程序。**
+**当前仅完成项目方案、用途说明、开发目录规划和 MacBook Conda 开发环境，尚未实现新的节点程序。**
 
 PoW 后端、多节点同步、分支处理、ARM 加速、监控页面、性能数据和离线部署均为计划内容，尚未通过实际验证。本仓库不提供生产环境系统或服务。
 
@@ -54,6 +54,16 @@ PoW 后端、多节点同步、分支处理、ARM 加速、监控页面、性能
 ```text
 README.md                       项目用途、范围与当前状态
 introduction/project_plan.md    课程设计方案与实施计划
+codes/README.md                 开发工具、源码目录和模块职责
+codes/environment.yml           Python 3.11 Conda 环境配置
+codes/src/blocknode/            后续 Python 节点源码
+codes/native/                   后续原生计算后端
+codes/experiments/              后续基准与仿真程序
+codes/tests/                    后续正确性与集成测试
+codes/config/                   后续创世和节点配置
+codes/scripts/                  后续启动与实验脚本
 ```
 
-原有项目文件夹在本地保留，其后续职责记录在项目方案中。Git 不跟踪空文件夹；后续仅在实际实现需要时添加文件。
+开发工具和目录职责见 [开发说明](codes/README.md)。使用独立的 `blocknode` Conda 环境，首版计划使用 Python 标准库，后续原生计算使用 C/C++。前端采用本地 HTML/CSS/原生 JavaScript，不使用 Node.js、npm、前端框架、Docker、第三方区块链平台或 SDK。
+
+`codes/` 已整理为新项目目录，使用 `.gitkeep` 保留待实现目录，尚未添加功能代码。其余顶层资料目录继续保留在本地，其职责记录在项目方案中。
