@@ -1,0 +1,358 @@
+[
+{
+  "device": "Raspberry Pi 5 Model B Rev 1.1",
+  "started_at_utc": "2026-11-09T09:00:28.731173+00:00",
+  "platform": "Linux-6.18.50+rpt-rpi-2712-aarch64-with-glibc2.41",
+  "architecture": "aarch64",
+  "python": "3.13.5",
+  "sha256_backend": "_hashlib",
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026",
+  "header_nonce_zero_hex": "0001636f61702d6564752d706f772d3030310000afc5ce4192fbc256c769acc9bb16cc9010bb585056cc355b828c9deb65fc0000000000000001111111111111111111111111111111110000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000",
+  "first_nonce": 0,
+  "attempts_per_trial": 5000000,
+  "workers": 1,
+  "warmups": [
+    {
+      "elapsed_ns": 4601343846,
+      "hashes_per_second": 1086639.0705286143,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 4600844386,
+      "hashes_per_second": 1086757.0342554073,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    }
+  ],
+  "measurements": [
+    {
+      "elapsed_ns": 4601205734,
+      "hashes_per_second": 1086671.687608568,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 4602776390,
+      "hashes_per_second": 1086300.87067949,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 4602506747,
+      "hashes_per_second": 1086364.5128296865,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 4608279721,
+      "hashes_per_second": 1085003.5811009745,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 4607803820,
+      "hashes_per_second": 1085115.6419241824,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 4605278595,
+      "hashes_per_second": 1085710.6463501586,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 4602367280,
+      "hashes_per_second": 1086397.4332791623,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 4600558034,
+      "hashes_per_second": 1086824.6771474157,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 4607667496,
+      "hashes_per_second": 1085147.7465204664,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 4608880369,
+      "hashes_per_second": 1084862.1790295811,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    }
+  ]
+}
+,{
+  "device": "Raspberry Pi 5 Model B Rev 1.1",
+  "started_at_utc": "2026-11-09T09:01:24.085302+00:00",
+  "platform": "Linux-6.18.50+rpt-rpi-2712-aarch64-with-glibc2.41",
+  "architecture": "aarch64",
+  "python": "3.13.5",
+  "sha256_backend": "_hashlib",
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026",
+  "header_nonce_zero_hex": "0001636f61702d6564752d706f772d3030310000afc5ce4192fbc256c769acc9bb16cc9010bb585056cc355b828c9deb65fc0000000000000001111111111111111111111111111111110000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000",
+  "first_nonce": 0,
+  "attempts_per_trial": 5000000,
+  "workers": 2,
+  "warmups": [
+    {
+      "elapsed_ns": 2525564671,
+      "hashes_per_second": 1979755.2830117175,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 2416945490,
+      "hashes_per_second": 2068726.8375258227,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    }
+  ],
+  "measurements": [
+    {
+      "elapsed_ns": 2454536032,
+      "hashes_per_second": 2037044.8568750122,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 2419042534,
+      "hashes_per_second": 2066933.4787314658,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 2420037000,
+      "hashes_per_second": 2066084.1135899988,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 2426819852,
+      "hashes_per_second": 2060309.501704208,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 2421249792,
+      "hashes_per_second": 2065049.2223150183,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 2414702120,
+      "hashes_per_second": 2070648.780479805,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 2418717829,
+      "hashes_per_second": 2067210.9578268628,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 2419474121,
+      "hashes_per_second": 2066564.7781070026,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 2416374731,
+      "hashes_per_second": 2069215.4804692832,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 2419935301,
+      "hashes_per_second": 2066170.9418156052,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    }
+  ]
+}
+,{
+  "device": "Raspberry Pi 5 Model B Rev 1.1",
+  "started_at_utc": "2026-11-09T09:01:53.418043+00:00",
+  "platform": "Linux-6.18.50+rpt-rpi-2712-aarch64-with-glibc2.41",
+  "architecture": "aarch64",
+  "python": "3.13.5",
+  "sha256_backend": "_hashlib",
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026",
+  "header_nonce_zero_hex": "0001636f61702d6564752d706f772d3030310000afc5ce4192fbc256c769acc9bb16cc9010bb585056cc355b828c9deb65fc0000000000000001111111111111111111111111111111110000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000",
+  "first_nonce": 0,
+  "attempts_per_trial": 5000000,
+  "workers": 4,
+  "warmups": [
+    {
+      "elapsed_ns": 1365736216,
+      "hashes_per_second": 3661029.078253571,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1217220392,
+      "hashes_per_second": 4107719.5492794537,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    }
+  ],
+  "measurements": [
+    {
+      "elapsed_ns": 1218354796,
+      "hashes_per_second": 4103894.8723439015,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1215261705,
+      "hashes_per_second": 4114340.1289025233,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1219002859,
+      "hashes_per_second": 4101713.103529317,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1227594380,
+      "hashes_per_second": 4073006.5903364597,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1215138339,
+      "hashes_per_second": 4114757.83416953,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1215698217,
+      "hashes_per_second": 4112862.8224351504,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1216164244,
+      "hashes_per_second": 4111286.7975421255,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1217551477,
+      "hashes_per_second": 4106602.5498320675,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1216954852,
+      "hashes_per_second": 4108615.8552084067,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1258447165,
+      "hashes_per_second": 3973150.5136332046,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    }
+  ]
+}
+,{
+  "device": "Raspberry Pi 5 Model B Rev 1.1",
+  "started_at_utc": "2026-11-09T09:02:08.413659+00:00",
+  "platform": "Linux-6.18.50+rpt-rpi-2712-aarch64-with-glibc2.41",
+  "architecture": "aarch64",
+  "python": "3.13.5",
+  "sha256_backend": "_hashlib",
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026",
+  "header_nonce_zero_hex": "0001636f61702d6564752d706f772d3030310000afc5ce4192fbc256c769acc9bb16cc9010bb585056cc355b828c9deb65fc0000000000000001111111111111111111111111111111110000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000",
+  "first_nonce": 0,
+  "attempts_per_trial": 5000000,
+  "workers": 3,
+  "warmups": [
+    {
+      "elapsed_ns": 1761274434,
+      "hashes_per_second": 2838853.448093598,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1632803286,
+      "hashes_per_second": 3062218.23710857,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    }
+  ],
+  "measurements": [
+    {
+      "elapsed_ns": 1634322657,
+      "hashes_per_second": 3059371.4029383366,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1630235487,
+      "hashes_per_second": 3067041.5653882767,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1632684249,
+      "hashes_per_second": 3062441.499672972,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1648350933,
+      "hashes_per_second": 3033334.649739905,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1641524167,
+      "hashes_per_second": 3045949.673185652,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1636916036,
+      "hashes_per_second": 3054524.4166695913,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1628296494,
+      "hashes_per_second": 3070693.8315129727,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1630245216,
+      "hashes_per_second": 3067023.261855105,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1636730107,
+      "hashes_per_second": 3054871.4040365606,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1649392025,
+      "hashes_per_second": 3031420.0167179783,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    }
+  ]
+}
+]

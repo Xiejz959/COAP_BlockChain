@@ -1,12 +1,14 @@
 # MacBook 单节点验收
 
-本文验收不启用网络时的单节点行为。网络、分支及重连另见[双节点验收](two_node_acceptance.md)。网页、多核和原生优化仍未实现。
+本文验收不启用网络时的单节点行为。网络、分支及重连另见[双节点验收](two_node_acceptance.md)。网页观测见[观测台验收](dashboard_acceptance.md)，多核和原生优化仍未实现。
 
 ## 准备
 
+从仓库根目录执行。
+
 ```bash
 conda activate blocknode
-cd "/Users/xiejz959/Xiejz/College/computer organization & archtecture/project/codes"
+cd codes
 python --version
 python -m blocknode --help
 ```
@@ -66,7 +68,7 @@ sqlite3 data/macbook/chain.sqlite3 "SELECT COUNT(*) AS stored_blocks, MAX(height
 python -m unittest discover -s tests -v -b
 ```
 
-当前完整测试应显示 28 项通过和 `OK`，包含单节点及网络测试。单节点部分覆盖固定创世哈希、编码边界、有效与无效 PoW、父块和高度、版本和网络、目标值、重复计数、重启恢复、坏库及 CLI。完整测试需要本机回环端口权限。
+当前完整测试应显示 31 项通过和 `OK`，包含单节点及网络测试。单节点部分覆盖固定创世哈希、编码边界、有效与无效 PoW、父块和高度、版本和网络、目标值、重复计数、重启恢复、坏库及 CLI。完整测试需要本机回环端口权限。
 
 测试使用临时目录，不修改 `data/macbook`。
 

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark"><title>Block Observatory · 节点观测台</title>
+  <link rel="stylesheet" href="/style.css"><script defer src="/app.js"></script>
+</head>
+<body>
+  <aside class="rail" aria-label="页面导航">
+    <a class="brandmark" href="#overview" aria-label="运行总览"><svg viewBox="0 0 32 32" fill="none"><path d="m16 3 12 7v13l-12 7-12-7V10Z M4 10l12 7 12-7 M16 17v13"/></svg></a>
+    <span class="rail-line"></span>
+    <a class="rail-link active" href="#overview" aria-label="总览">◈</a>
+    <a class="rail-link" href="#chain" aria-label="区块图">▦</a>
+    <a class="rail-link" href="#events" aria-label="事件记录">≡</a>
+    <span class="rail-bottom">COAP<br>LAB</span>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><a class="wordmark" href="#overview">BLOCK<span>/</span>OBSERVATORY</a><div class="top-right"><span class="pill">EDUCATIONAL USE ONLY</span><span id="connection" class="connection"><i></i>正在连接</span></div></header>
+    <main id="overview">
+      <section class="page-heading"><div><div class="eyebrow">DISTRIBUTED COMPUTING LAB <span> / 01</span></div><h1>节点运行总览<span class="title-dot">.</span></h1><p>观察计算、验证与同步，如何形成同一份状态。</p></div><div class="identity"><span class="small-label">CURRENT NODE</span><strong id="identity">等待节点数据</strong><span id="endpoint">只读观测 · 本地运行</span></div></section>
+      <section class="metrics" aria-label="节点实时指标">
+        <article class="metric primary"><div class="metric-label">当前链累计区块 <span>↗</span></div><div class="metric-value" id="height">—</div><div class="metric-note"><i class="dot cyan"></i>不包含创世块与旁支</div></article>
+        <article class="metric"><div class="metric-label">直接连接节点 <span>◈</span></div><div class="metric-value" id="peer-count">—</div><div class="metric-note" id="peer-note">等待握手信息</div></article>
+        <article class="metric"><div class="metric-label">计算任务状态 <span>⌁</span></div><div class="metric-value status-value" id="compute-state">—</div><div class="metric-note" id="compute-note">标准库参考计算后端</div></article>
+        <article class="metric"><div class="metric-label">最近搜索平均速率 <span>↝</span></div><div class="metric-value" id="rate">—</div><div class="metric-note">按最近一次搜索统计 · 非基准跑分</div></article>
+      </section>
+      <section class="panel chain-panel" id="chain"><div class="panel-heading"><div><div class="section-kicker">01 / CHAIN EXPLORER</div><h2>区块与分支</h2></div><div class="legend"><span><i class="dot cyan"></i>当前链</span><span><i class="dot amber"></i>旁支</span><span id="branch-count" class="mini-badge">—</span></div></div>
+        <div class="chain-layout"><div class="chain-main"><div class="chain-context"><span id="chain-range">正在读取已验证区块</span><span>点击区块查看详情 ↗</span></div><div id="chain-scroll" class="chain-scroll"><svg id="chain-graph" role="img" aria-label="本节点已验证区块与分支图"></svg></div><div class="chain-footer"><span class="small-label">SELECTED HEAD</span><code id="head">—</code><span class="verified">✓ VERIFIED</span></div></div>
+        <aside class="inspector"><div class="inspect-heading"><span class="small-label">BLOCK INSPECTOR</span><span id="block-kind" class="tag">等待数据</span></div><div class="inspect-height" id="block-height">—</div><dl><dt>区块哈希</dt><dd id="block-hash">—</dd><dt>父区块哈希</dt><dd id="block-parent">—</dd><dt>生成节点</dt><dd id="block-node">—</dd><dt>Nonce</dt><dd id="block-nonce">—</dd><dt>累计工作量</dt><dd id="block-work">—</dd></dl></aside></div>
+      </section>
+      <section class="lower-grid"><article class="panel peers-panel"><div class="panel-heading"><div><div class="section-kicker">02 / PEER CONNECTIONS</div><h2>直接连接视图</h2></div><span class="subtle-label">本节点视角</span></div><div class="topology" id="topology"><div class="topology-local"><i class="node-orbit"></i><span>LOCAL NODE</span><strong id="local-short">—</strong></div><div class="peer-list" id="peer-list"><p class="empty-state">当前没有已完成握手的连接</p></div></div><div class="panel-footnote">对端高度与链头来自最近通告，不代表全网实时拓扑。</div></article>
+      <article class="panel rate-panel"><div class="panel-heading"><div><div class="section-kicker">03 / COMPUTATION</div><h2>搜索速率轨迹</h2></div><span class="chart-unit">MH/s</span></div><div class="chart-summary"><strong id="chart-rate">—</strong><span id="chart-caption">本次进程尚未完成 PoW 搜索</span></div><div class="chart-wrap"><svg id="rate-chart" viewBox="0 0 600 150" role="img" aria-label="本次进程每次完成搜索的平均速率"></svg><div id="chart-empty" class="chart-empty">等待真实计算样本<span>验证节点不产生本地搜索速率</span></div></div><div class="chart-axis"><span id="sample-first">SESSION START</span><span id="sample-count">0 个搜索样本</span><span id="sample-last">NOW</span></div></article></section>
+      <section class="panel events-panel" id="events"><div class="panel-heading"><div><div class="section-kicker">04 / EVENT STREAM</div><h2>节点事件记录</h2></div><span class="subtle-label">最近 100 条 · 本次进程</span></div><div class="event-head"><span>时间</span><span>事件</span><span>观测记录</span></div><div class="event-list" id="event-list"></div></section>
+      <footer><span><i class="dot cyan"></i>LOCAL NETWORK · READ ONLY</span><span>仅用于课程设计与教育教学 · 无货币、交易或奖励功能</span><span id="updated">等待首次更新</span></footer>
+    </main>
+  </div>
+</body></html>

@@ -19,7 +19,7 @@ def nonnegative_int(value: str) -> int:
     return number
 
 
-def run(config_path: Path, data_dir: Path, blocks: int, listen=None, peers=()) -> None:
+def run(config_path: Path, data_dir: Path, blocks: int, listen=None, peers=(), dashboard=None) -> None:
     config = load_config(config_path)
     store = BlockStore(data_dir, config)
     try:
@@ -29,7 +29,7 @@ def run(config_path: Path, data_dir: Path, blocks: int, listen=None, peers=()) -
         )
         if listen is not None:
             try:
-                asyncio.run(NetworkNode(store, listen, list(peers)).run(blocks))
+                asyncio.run(NetworkNode(store, listen, list(peers), dashboard).run(blocks))
             except KeyboardInterrupt:
                 pass
             return
@@ -62,13 +62,18 @@ def main() -> None:
     )
     parser.add_argument("--listen", type=endpoint, help="listen IPv4:port; defaults to no network server")
     parser.add_argument("--peer", type=endpoint, action="append", default=[], help="explicit peer IPv4:port; repeatable")
+    parser.add_argument('--dashboard', type=endpoint, help='read-only local HTTP dashboard IPv4:port; requires --listen')
     args = parser.parse_args()
     if args.peer and args.listen is None:
         parser.error("--peer requires --listen")
+    if args.dashboard is not None and args.listen is None:
+        parser.error('--dashboard requires --listen')
+    if args.dashboard is not None and args.dashboard == args.listen:
+        parser.error('dashboard and peer listener must use different endpoints')
     if args.listen in args.peer or len(set(args.peer)) != len(args.peer):
         parser.error("peers must be distinct and cannot equal the listen address")
     try:
-        run(args.config, args.data_dir, args.blocks, args.listen, args.peer)
+        run(args.config, args.data_dir, args.blocks, args.listen, args.peer, args.dashboard)
     except (OSError, ValueError, sqlite3.Error) as error:
         parser.exit(1, f"error: {error}\n")
 

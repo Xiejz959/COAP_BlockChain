@@ -2,12 +2,14 @@
 
 import asyncio
 from time import perf_counter
+from time import time
 
 from blocknode.chain.block import Block, HEADER, MAX_NONCE
 from blocknode.chain.validation import validate_header
 from blocknode.compute.pow import search_nonces
 from blocknode.storage.sqlite import BlockStore
 from .protocol import BATCH_SIZE, MAX_MESSAGE, binary, encode_message, read_message
+from blocknode.monitoring.dashboard import Observation, DashboardServer
 
 
 class Session:
@@ -54,21 +56,31 @@ class Session:
             if peer_id == store.node_id or peer_id == bytes(16):
                 raise ValueError("peer node ID is self or reserved")
             head = binary(hello["head"], 32)
+            self.peer_id = peer_id
+            self.remote_head = head
+            self.last_seen = time()
+            address = self.writer.get_extra_info('peername')
+            self.address = f'{address[0]}:{address[1]}'
             self.node.sessions.add(self)
+            self.node.observation.record('CONNECTED', f'已连接节点 {peer_id.hex()[:8]}')
             print(f"PEER_CONNECTED node_id={peer_id.hex()}", flush=True)
             self.sync(head)
             while True:
                 await self.writer.drain()
                 self.handle(await read_message(self.reader))
         finally:
+            if self in self.node.sessions:
+                self.node.observation.record('DISCONNECTED', f'节点 {self.peer_id.hex()[:8]} 已断开')
             self.node.sessions.discard(self)
             self.writer.close()
 
     def handle(self, message: dict) -> None:
         store = self.node.store
         kind = message["type"]
+        self.last_seen = time()
         if kind == "head":
-            self.sync(binary(message["hash"], 32))
+            self.remote_head = binary(message["hash"], 32)
+            self.sync(self.remote_head)
         elif kind == "block":
             block = Block.from_bytes(binary(message["header"], HEADER.size))
             if block.hash in store.blocks:
@@ -108,6 +120,7 @@ class Session:
                 previous = block
             if head in store.blocks:
                 self.sync_head = None
+                self.node.observation.record('SYNC_DONE', f'历史补齐完成，当前高度 {store.tip.height}', store.tip.hash.hex())
                 print(f"SYNC_DONE height={store.tip.height} head={store.tip.hash.hex()}", flush=True)
                 if self.next_head is not None:
                     next_head, self.next_head = self.next_head, None
@@ -121,19 +134,23 @@ class Session:
 
 
 class NetworkNode:
-    def __init__(self, store: BlockStore, listen: tuple[str, int], peers: list[tuple[str, int]]) -> None:
+    def __init__(self, store: BlockStore, listen: tuple[str, int], peers: list[tuple[str, int]], dashboard=None) -> None:
         self.store, self.listen, self.peers = store, listen, peers
         self.sessions: set[Session] = set()
         self.ready = asyncio.Event()
+        self.observation = Observation()
+        self.dashboard_address = dashboard
 
     def accept(self, block: Block, source: str) -> bool:
         old_tip = self.store.tip
         if not self.store.accept(block):
             return False
+        self.observation.record(source, f'区块 #{block.height} 验证通过 · 当前链高度 {self.store.tip.height}', block.hash.hex())
         print(f"{source} block_height={block.height} height={self.store.tip.height} "
               f"accepted_block_count={self.store.accepted_block_count} "
               f"head={self.store.tip.hash.hex()}", flush=True)
         if block.previous_hash != old_tip.hash and self.store.tip.hash != old_tip.hash:
+            self.observation.record('REORG', f'已切换到更高累计工作量的链 · 高度 {self.store.tip.height}', self.store.tip.hash.hex())
             print(f"REORG old_head={old_tip.hash.hex()} head={self.store.tip.hash.hex()}", flush=True)
         for session in tuple(self.sessions):
             session.send({"type": "block", "header": block.to_bytes().hex()})
@@ -160,6 +177,7 @@ class NetworkNode:
             await asyncio.sleep(1)
 
     async def compute(self, count: int) -> None:
+        self.observation.computing = count > 0
         completed = 0
         while completed < count:
             parent = self.store.tip
@@ -176,12 +194,15 @@ class NetworkNode:
                 if block is not None:
                     elapsed = perf_counter() - started
                     self.accept(block, "COMPUTED")
+                    self.observation.computation(block.nonce + 1, elapsed)
                     print(f"COMPUTE_RESULT nonce={block.nonce} attempts={block.nonce + 1} "
                           f"compute_seconds={elapsed:.6f}", flush=True)
                     completed += 1
                     break
             else:
                 raise RuntimeError("nonce space exhausted without a valid result")
+        self.observation.computing = False
+        self.observation.record('COMPUTE_DONE', f'本次计算结束，共生成 {completed} 个有效区块')
         print(f"COMPUTE_DONE local_blocks={completed} height={self.store.tip.height} "
               f"head={self.store.tip.hash.hex()}", flush=True)
 
@@ -198,9 +219,26 @@ class NetworkNode:
             async with server:
                 await server.start_serving()
                 self.listen = server.sockets[0].getsockname()[:2]
+                dashboard = None
+                if self.dashboard_address is not None:
+                    dashboard = DashboardServer(self.dashboard_address)
+                    dashboard.publish(self.observation.snapshot(self))
+                    dashboard.start()
+                    print(f'DASHBOARD http://{self.dashboard_address[0]}:{self.dashboard_address[1]}', flush=True)
                 print(f"LISTEN address={self.listen[0]}:{self.listen[1]}", flush=True)
                 for peer in self.peers:
                     tasks.create_task(self.connect(peer))
                 tasks.create_task(self.compute(blocks))
+                if dashboard is not None:
+                    tasks.create_task(self.publish(dashboard))
                 self.ready.set()
-                await server.serve_forever()
+                try:
+                    await server.serve_forever()
+                finally:
+                    if dashboard is not None:
+                        dashboard.close()
+
+    async def publish(self, dashboard):
+        while True:
+            dashboard.publish(self.observation.snapshot(self))
+            await asyncio.sleep(0.5)

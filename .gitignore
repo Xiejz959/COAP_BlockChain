@@ -5,3 +5,4 @@ __pycache__/
 /codes/data/
 /codes/build/
 *.egg-info/
+/latex compiler/

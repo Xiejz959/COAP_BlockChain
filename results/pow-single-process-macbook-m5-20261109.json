@@ -1,0 +1,88 @@
+{
+  "device": "MacBook Air (Apple M5)",
+  "started_at_utc": "2026-11-09T08:51:19.170725+00:00",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "architecture": "arm64",
+  "python": "3.11.16",
+  "sha256_backend": "_hashlib",
+  "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+  "header_nonce_zero_hex": "0001636f61702d6564752d706f772d3030310000afc5ce4192fbc256c769acc9bb16cc9010bb585056cc355b828c9deb65fc0000000000000001111111111111111111111111111111110000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000",
+  "first_nonce": 0,
+  "attempts_per_trial": 5000000,
+  "warmups": [
+    {
+      "elapsed_ns": 1197563125,
+      "hashes_per_second": 4175145.255912919,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1346334625,
+      "hashes_per_second": 3713786.979221455,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    }
+  ],
+  "measurements": [
+    {
+      "elapsed_ns": 1198564625,
+      "hashes_per_second": 4171656.5762985037,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1203297667,
+      "hashes_per_second": 4155247.813673356,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1276887666,
+      "hashes_per_second": 3915771.2406002674,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1293842375,
+      "hashes_per_second": 3864458.3734552674,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1391024708,
+      "hashes_per_second": 3594472.4570629266,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1199759791,
+      "hashes_per_second": 4167500.8926849426,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1203394667,
+      "hashes_per_second": 4154912.87863585,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1220416917,
+      "hashes_per_second": 4096960.5799064813,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1208705708,
+      "hashes_per_second": 4136656.2322877687,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    },
+    {
+      "elapsed_ns": 1195543291,
+      "hashes_per_second": 4182199.036739022,
+      "target_hits": 78,
+      "last_digest": "3a0d9d9408fd2dd537312ae530d22f8e8267d54079a86b10aeb667560da6a5c1"
+    }
+  ]
+}

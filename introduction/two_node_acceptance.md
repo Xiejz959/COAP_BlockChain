@@ -6,11 +6,11 @@
 
 ## 1. 两个终端的准备
 
-在每个终端执行：
+在每个终端从仓库根目录执行：
 
 ```bash
 conda activate blocknode
-cd "/Users/xiejz959/Xiejz/College/computer organization & archtecture/project/codes"
+cd codes
 ```
 
 以下计数适用于首次使用 `data/net-a` 和 `data/net-b`。已有目录会恢复并继续使用；重新演示时改用新的目录，不自动重置原库。
@@ -69,7 +69,7 @@ B 应先显示 `START height=3`，随后连接、补齐两块，最终达到高�
 python -m unittest discover -s tests -v -b
 ```
 
-应显示 28 项通过和 `OK`。`-b` 在测试成功时隐藏节点日志，在失败时保留诊断输出。网络测试需要本机回环端口权限。
+应显示 31 项通过和 `OK`。`-b` 在测试成功时隐藏节点日志，在失败时保留诊断输出。网络测试需要本机回环端口权限。
 
 覆盖内容包括：
 
@@ -86,4 +86,4 @@ python -m unittest discover -s tests -v -b
 
 ## 当前验证范围
 
-已验证 MacBook 上的回环 TCP、真实双进程和受控的停止重启。没有启动网页、没有安装网络框架、没有向公网发布节点。没有验证 PC、Pi、真实局域网部署、多核、原生加速或完整性能实验。
+已验证 MacBook 上的回环 TCP、真实双进程和受控的停止重启。本双节点验收不启动网页；另有可选[只读观测台](dashboard_acceptance.md)，不使用网络框架或公网服务。没有验证 PC、Pi、真实局域网部署、多核、原生加速或完整性能实验。

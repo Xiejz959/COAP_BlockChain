@@ -12,3 +12,6 @@ dependencies = []
 [tool.setuptools.packages.find]
 where = ["src"]
 namespaces = false
+
+[tool.setuptools.package-data]
+"blocknode.monitoring" = ["web/*.html", "web/*.css", "web/*.js"]
